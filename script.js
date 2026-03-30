@@ -15,6 +15,30 @@ if (menuToggle && menu) {
   });
 }
 
+const serviceCards = document.querySelectorAll('.card--service[data-href]');
+serviceCards.forEach((card) => {
+  const openCardLink = () => {
+    const href = card.dataset.href;
+    if (href) {
+      window.location.hash = href;
+    }
+  };
+
+  card.addEventListener('click', (event) => {
+    if (event.target.closest('a, button')) {
+      return;
+    }
+    openCardLink();
+  });
+
+  card.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      openCardLink();
+    }
+  });
+});
+
 const modalTriggers = document.querySelectorAll('[data-modal-target]');
 const allModals = document.querySelectorAll('.modal');
 let activeModal = null;
@@ -87,11 +111,11 @@ faqQuestions.forEach((question) => {
 const form = document.querySelector('.contacts__form');
 if (form) {
   form.addEventListener('submit', (event) => {
-    event.preventDefault();
     const phoneInput = form.querySelector('input[name="phone"]');
     const phoneValue = (phoneInput?.value || '').replace(/\D/g, '');
 
     if (phoneValue.length < 10) {
+      event.preventDefault();
       phoneInput?.focus();
       phoneInput?.setCustomValidity('Укажите корректный номер телефона');
       phoneInput?.reportValidity();
@@ -101,8 +125,18 @@ if (form) {
     phoneInput?.setCustomValidity('');
 
     trackGoal('form_submit');
+    event.preventDefault();
 
-    form.reset();
-    alert('Спасибо! Заявка отправлена. Мы свяжемся с вами в ближайшее время.');
+    const nameValue = (form.querySelector('input[name="name"]')?.value || '').trim();
+    const messageValue = (form.querySelector('textarea[name="message"]')?.value || '').trim();
+    const emailTo = 'ivityavelichkevich@gmail.com';
+    const subject = 'Заявка с сайта СК Кайзер';
+    const body = [
+      `Имя: ${nameValue || '-'}`,
+      `Телефон: ${phoneInput?.value || '-'}`,
+      `Комментарий: ${messageValue || '-'}`
+    ].join('\n');
+
+    window.location.href = `mailto:${emailTo}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   });
 }

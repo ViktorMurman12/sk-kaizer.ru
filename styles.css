@@ -113,6 +113,10 @@ a {
   color: #17202d;
 }
 
+#packages {
+  scroll-margin-top: 104px;
+}
+
 .section--soft + .section::before,
 .section--seo + .section::before {
   background: linear-gradient(to bottom, rgba(231, 236, 242, 0) 0%, rgba(231, 236, 242, 0.72) 52%, rgba(231, 236, 242, 0) 100%);
@@ -190,6 +194,13 @@ a {
   background: linear-gradient(140deg, var(--accent-green), #d17d13);
   color: #101316;
   font-weight: 800;
+}
+
+.brand__logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  display: block;
 }
 
 .nav {
@@ -351,10 +362,22 @@ a {
   box-shadow: 0 16px 32px rgba(243, 166, 41, 0.32);
 }
 
+.btn--primary:hover,
+.btn--primary:focus-visible {
+  background: linear-gradient(145deg, #f7b246, #e08a20);
+}
+
 .btn--ghost {
   border: 1px solid #cdd8e6;
   background: #ffffff;
   color: #1f2937;
+}
+
+.btn--ghost:hover,
+.btn--ghost:focus-visible {
+  background: #fff5e5;
+  border-color: #f0c06d;
+  color: #7f4503;
 }
 
 .btn--small {
@@ -395,6 +418,7 @@ a {
 }
 
 .key {
+  display: block;
   border-radius: 999px;
   padding: 12px 16px;
   font-weight: 700;
@@ -433,6 +457,8 @@ a {
 
 .cards--4 {
   grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: stretch;
+  grid-auto-rows: 1fr;
 }
 
 .cards--5 {
@@ -457,6 +483,51 @@ a {
 .card:hover {
   border-color: rgba(243, 166, 41, 0.75);
   box-shadow: 0 12px 28px rgba(3, 8, 14, 0.35);
+}
+
+.card--work {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card--work .btn--small {
+  margin-top: auto;
+  margin-bottom: 2px;
+}
+
+.card--service {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.card--service:focus-visible {
+  outline: 2px solid rgba(243, 166, 41, 0.8);
+  outline-offset: 2px;
+}
+
+.card--service .text-link {
+  margin-top: auto;
+  padding-top: 8px;
+}
+
+.service-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: inline-grid;
+  place-items: center;
+  border: 1px solid rgba(243, 166, 41, 0.6);
+  background: #fff5e8;
+  color: #9f5b05;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.service-icon:hover {
+  background: #ffe7c3;
 }
 
 .text-link {
@@ -493,6 +564,16 @@ a {
   gap: 8px;
 }
 
+.package {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 430px;
+  padding-bottom: 72px;
+  scroll-margin-top: 110px;
+}
+
 .package--white {
   border-color: #cfd9e6;
 }
@@ -511,7 +592,11 @@ a {
 }
 
 .price {
-  margin-top: 18px;
+  position: absolute;
+  left: 22px;
+  right: 22px;
+  bottom: 22px;
+  margin: 0;
   font-size: 1.08rem;
   font-weight: 800;
   color: #1b2430;
@@ -630,24 +715,64 @@ a {
 
 .faq-item__question {
   width: 100%;
-  padding: 16px;
+  position: relative;
+  padding: 18px 16px 18px 66px;
   text-align: left;
   border: 0;
   background: transparent;
   color: #1b2430;
   font-family: inherit;
   font-weight: 700;
+  font-size: 1.15rem;
+  line-height: 1.35;
   cursor: pointer;
+}
+
+.faq-item__question::before {
+  content: "";
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid #d6dfe9;
+  display: grid;
+  place-items: center;
+  transform: translateY(-50%);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.faq-item__question::after {
+  content: "";
+  position: absolute;
+  left: 34px;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  border-right: 2px solid #9f5b05;
+  border-bottom: 2px solid #9f5b05;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  transition: transform 0.2s ease;
 }
 
 .faq-item__answer {
   display: none;
-  padding: 0 16px 16px;
+  padding: 0 16px 18px 66px;
   color: var(--text-muted);
 }
 
 .faq-item.is-open .faq-item__answer {
   display: block;
+}
+
+.faq-item.is-open .faq-item__question::before {
+  background: #fff2dc;
+  border-color: #efc889;
+}
+
+.faq-item.is-open .faq-item__question::after {
+  transform: translate(-50%, -50%) rotate(45deg);
 }
 
 .contacts {
@@ -711,14 +836,29 @@ a {
 
 .checkbox {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 10px;
+  flex-wrap: nowrap;
 }
 
 .checkbox input {
   width: 18px;
   height: 18px;
-  margin-top: 2px;
+  margin-top: 0;
+  flex-shrink: 0;
+}
+
+.checkbox span {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1.35;
+  margin-left: 2px;
+  white-space: nowrap;
+}
+
+.contacts__form .btn--primary {
+  font-size: 1.08rem;
+  padding-block: 16px;
 }
 
 .requisites {

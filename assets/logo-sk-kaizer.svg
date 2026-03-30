@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="logoTitle logoDesc">
+  <title id="logoTitle">Логотип СК Кайзер</title>
+  <desc id="logoDesc">Композиция из кубов в черно-серой гамме</desc>
+
+  <defs>
+    <g id="cube">
+      <polygon points="0,-14 14,-6 0,2 -14,-6" fill="#000"/>
+      <polygon points="-14,-6 0,2 0,22 -14,14" fill="#9f9f9f"/>
+      <polygon points="14,-6 0,2 0,22 14,14" fill="#f5f5f5"/>
+    </g>
+  </defs>
+
+  <g transform="translate(64 64)">
+    <use href="#cube" transform="translate(0 -30)"/>
+    <use href="#cube" transform="translate(-26 -15)"/>
+    <use href="#cube" transform="translate(26 -15)"/>
+    <use href="#cube" transform="translate(0 0)"/>
+    <use href="#cube" transform="translate(-26 15)"/>
+    <use href="#cube" transform="translate(26 15)"/>
+    <use href="#cube" transform="translate(0 30)"/>
+  </g>
+</svg>
