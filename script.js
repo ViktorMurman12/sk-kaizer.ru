@@ -71,12 +71,23 @@ const openModal = (modal, trigger) => {
 };
 
 modalTriggers.forEach((trigger) => {
-  trigger.addEventListener('click', () => {
+  const handleOpen = () => {
     const targetId = trigger.getAttribute('data-modal-target');
     const targetModal = document.getElementById(targetId);
     openModal(targetModal, trigger);
     trackGoal('open_work_modal');
-  });
+  };
+
+  trigger.addEventListener('click', handleOpen);
+
+  if (trigger.matches('[role="button"]')) {
+    trigger.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        handleOpen();
+      }
+    });
+  }
 });
 
 allModals.forEach((modal) => {

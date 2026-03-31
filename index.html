@@ -193,7 +193,7 @@
           </div>
 
           <aside class="keychain" aria-label="Комплектации под ключ">
-            <div class="keychain__ring"></div>
+            <p class="keychain__title">Выберите комплектацию под вашу цель</p>
             <div class="keychain__keys">
               <a class="key key--white" href="#packages">Белый ключ</a>
               <a class="key key--gray" href="#packages">Серый ключ</a>
@@ -214,12 +214,26 @@
           </p>
           <div class="trust-grid">
             <article class="trust-card">
+              <img
+                class="trust-icon"
+                src="assets/icon-shield.svg"
+                alt=""
+                width="28"
+                height="28"
+              />
               <h3>Надежно и последовательно</h3>
               <p>
                 Строим по технологии и не перескакиваем этапы ради скорости.
               </p>
             </article>
             <article class="trust-card">
+              <img
+                class="trust-icon"
+                src="assets/icon-chat.svg"
+                alt=""
+                width="28"
+                height="28"
+              />
               <h3>Всегда на связи</h3>
               <p>
                 Отвечаем по телефону, в Telegram и по почте без длинного
@@ -227,6 +241,13 @@
               </p>
             </article>
             <article class="trust-card">
+              <img
+                class="trust-icon"
+                src="assets/icon-doc.svg"
+                alt=""
+                width="28"
+                height="28"
+              />
               <h3>Фиксируем условия</h3>
               <p>
                 Смета и сроки согласовываются до старта и не меняются без
@@ -313,44 +334,59 @@
           </p>
 
           <div class="cards cards--5">
-            <article class="card card--work">
+            <article
+              class="card card--work card--work-roof"
+              data-modal-target="modal-roof"
+              role="button"
+              tabindex="0"
+            >
               <h3>Кровельные</h3>
               <p>Монтаж, ремонт, утепление, гидроизоляция.</p>
-              <button class="btn btn--small" data-modal-target="modal-roof">
-                Подробнее
-              </button>
+              <button class="btn btn--small">Подробнее</button>
             </article>
 
-            <article class="card card--work">
+            <article
+              class="card card--work card--work-facade"
+              data-modal-target="modal-facade"
+              role="button"
+              tabindex="0"
+            >
               <h3>Фасадные</h3>
               <p>Утепление, облицовка, штукатурные системы.</p>
-              <button class="btn btn--small" data-modal-target="modal-facade">
-                Подробнее
-              </button>
+              <button class="btn btn--small">Подробнее</button>
             </article>
 
-            <article class="card card--work">
+            <article
+              class="card card--work card--work-monolith"
+              data-modal-target="modal-monolith"
+              role="button"
+              tabindex="0"
+            >
               <h3>Монолитные</h3>
               <p>Фундаменты, плиты, колонны, армирование.</p>
-              <button class="btn btn--small" data-modal-target="modal-monolith">
-                Подробнее
-              </button>
+              <button class="btn btn--small">Подробнее</button>
             </article>
 
-            <article class="card card--work">
+            <article
+              class="card card--work card--work-masonry"
+              data-modal-target="modal-masonry"
+              role="button"
+              tabindex="0"
+            >
               <h3>Каменные</h3>
               <p>Кладка стен и перегородок, армопояса.</p>
-              <button class="btn btn--small" data-modal-target="modal-masonry">
-                Подробнее
-              </button>
+              <button class="btn btn--small">Подробнее</button>
             </article>
 
-            <article class="card card--work">
+            <article
+              class="card card--work card--work-fences"
+              data-modal-target="modal-fences"
+              role="button"
+              tabindex="0"
+            >
               <h3>Заборы</h3>
               <p>Профлист, штакетник, 3D-сетка, ворота.</p>
-              <button class="btn btn--small" data-modal-target="modal-fences">
-                Подробнее
-              </button>
+              <button class="btn btn--small">Подробнее</button>
             </article>
           </div>
         </div>
@@ -411,18 +447,86 @@
         <div class="container">
           <h2>Преимущества</h2>
           <div class="benefits-grid">
-            <article class="benefit">Любой вид оплаты</article>
-            <article class="benefit">
-              Договор и согласованный упрощенный формат
+            <article class="benefit benefit--lg">
+              <img
+                class="benefit__icon"
+                src="assets/icon-wallet.svg"
+                alt=""
+                width="24"
+                height="24"
+              />
+              <span>Любой вид оплаты</span>
+            </article>
+            <article class="benefit benefit--md">
+              <img
+                class="benefit__icon"
+                src="assets/icon-contract.svg"
+                alt=""
+                width="24"
+                height="24"
+              />
+              <span>Договор и согласованный упрощенный формат</span>
             </article>
             <article class="benefit">
-              Предоставляем инструмент и материал
+              <img
+                class="benefit__icon"
+                src="assets/icon-tools.svg"
+                alt=""
+                width="24"
+                height="24"
+              />
+              <span>Предоставляем инструмент и материал</span>
             </article>
-            <article class="benefit">Поэтапная оплата</article>
-            <article class="benefit">Гарантия на выполненные работы</article>
-            <article class="benefit">Фиксированная смета в рублях</article>
-            <article class="benefit">Фото и видео отчеты</article>
-            <article class="benefit">Соблюдение сроков</article>
+            <article class="benefit">
+              <img
+                class="benefit__icon"
+                src="assets/icon-steps.svg"
+                alt=""
+                width="24"
+                height="24"
+              />
+              <span>Поэтапная оплата</span>
+            </article>
+            <article class="benefit benefit--lg">
+              <img
+                class="benefit__icon"
+                src="assets/icon-shield.svg"
+                alt=""
+                width="24"
+                height="24"
+              />
+              <span>Гарантия на выполненные работы</span>
+            </article>
+            <article class="benefit benefit--md">
+              <img
+                class="benefit__icon"
+                src="assets/icon-calc.svg"
+                alt=""
+                width="24"
+                height="24"
+              />
+              <span>Фиксированная смета в рублях</span>
+            </article>
+            <article class="benefit">
+              <img
+                class="benefit__icon"
+                src="assets/icon-camera.svg"
+                alt=""
+                width="24"
+                height="24"
+              />
+              <span>Фото и видео отчеты</span>
+            </article>
+            <article class="benefit">
+              <img
+                class="benefit__icon"
+                src="assets/icon-clock.svg"
+                alt=""
+                width="24"
+                height="24"
+              />
+              <span>Соблюдение сроков</span>
+            </article>
           </div>
         </div>
       </section>
@@ -537,8 +641,8 @@
         <div class="container faq">
           <h2>Частые вопросы</h2>
           <div class="faq__list">
-            <article class="faq-item">
-              <button class="faq-item__question" aria-expanded="false">
+            <article class="faq-item is-open">
+              <button class="faq-item__question" aria-expanded="true">
                 Сколько стоит строительство дома под ключ в Калининграде?
               </button>
               <div class="faq-item__answer">
