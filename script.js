@@ -109,6 +109,27 @@ document.addEventListener('keydown', (event) => {
   }
 });
 
+const projectModalGallery = document.getElementById('modal-project-gallery');
+const projectModalHero = document.getElementById('modal-project-hero');
+
+if (projectModalGallery && projectModalHero) {
+  const thumbs = projectModalGallery.querySelectorAll('.project-modal__thumb');
+  thumbs.forEach((thumb, index) => {
+    thumb.addEventListener('click', () => {
+      const imageSrc = thumb.dataset.imageSrc;
+      const imageTag = thumb.querySelector('img');
+      if (!imageSrc || !imageTag) {
+        return;
+      }
+      projectModalHero.src = imageSrc;
+      projectModalHero.alt = imageTag.alt;
+      thumbs.forEach((item) => item.classList.remove('is-active'));
+      thumb.classList.add('is-active');
+      trackGoal('open_portfolio_project');
+    });
+  });
+}
+
 const faqQuestions = document.querySelectorAll('.faq-item__question');
 faqQuestions.forEach((question) => {
   question.addEventListener('click', () => {
@@ -121,12 +142,15 @@ faqQuestions.forEach((question) => {
 
 const form = document.querySelector('.contacts__form');
 if (form) {
+  const formStatus = form.querySelector('.contacts__form-status');
+
   form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
     const phoneInput = form.querySelector('input[name="phone"]');
     const phoneValue = (phoneInput?.value || '').replace(/\D/g, '');
 
     if (phoneValue.length < 10) {
-      event.preventDefault();
       phoneInput?.focus();
       phoneInput?.setCustomValidity('Укажите корректный номер телефона');
       phoneInput?.reportValidity();
@@ -136,18 +160,41 @@ if (form) {
     phoneInput?.setCustomValidity('');
 
     trackGoal('form_submit');
-    event.preventDefault();
+    if (formStatus) {
+      formStatus.textContent = 'Отправляем заявку...';
+    }
 
-    const nameValue = (form.querySelector('input[name="name"]')?.value || '').trim();
-    const messageValue = (form.querySelector('textarea[name="message"]')?.value || '').trim();
-    const emailTo = 'ivityavelichkevich@gmail.com';
-    const subject = 'Заявка с сайта СК Кайзер';
-    const body = [
-      `Имя: ${nameValue || '-'}`,
-      `Телефон: ${phoneInput?.value || '-'}`,
-      `Комментарий: ${messageValue || '-'}`
-    ].join('\n');
+    const submitBtn = form.querySelector('button[type="submit"]');
+    if (submitBtn) {
+      submitBtn.disabled = true;
+    }
 
-    window.location.href = `mailto:${emailTo}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    fetch(form.action, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json'
+      },
+      body: new FormData(form)
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('request_failed');
+        }
+        form.reset();
+        if (formStatus) {
+          formStatus.textContent = 'Спасибо! Заявка отправлена. Мы свяжемся с вами.';
+        }
+      })
+      .catch(() => {
+        if (formStatus) {
+          formStatus.textContent =
+            'Не удалось отправить заявку. Проверьте интернет и попробуйте снова.';
+        }
+      })
+      .finally(() => {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+        }
+      });
   });
 }
