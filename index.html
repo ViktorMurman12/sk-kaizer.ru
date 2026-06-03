@@ -122,8 +122,8 @@
             class="brand__logo"
             src="assets/logo-sk-kaizer.svg"
             alt="Логотип СК Кайзер"
-            width="40"
-            height="40"
+            width="52"
+            height="52"
           />
           <span class="brand__text">Кайзер</span>
         </a>
@@ -397,7 +397,7 @@
         <div class="container">
           <h2>Комплектации дома под ключ</h2>
           <div class="cards cards--4">
-            <article class="card package package--white" id="package-white">
+            <article class="card package package--black" id="package-black">
               <h3>Черный ключ</h3>
               <ul>
                 <li>Фундамент</li>
@@ -419,7 +419,7 @@
               <p class="price">от 52 000 ₽/м²</p>
             </article>
 
-            <article class="card package package--black" id="package-black">
+            <article class="card package package--white" id="package-white">
               <h3>Белый ключ</h3>
               <ul>
                 <li>Серый ключ</li>
@@ -565,6 +565,30 @@
                 loading="lazy"
               />
               <h3>Частный дом 1</h3>
+              <p>Калининградская область</p>
+              <button
+                class="btn btn--small"
+                type="button"
+                data-modal-target="modal-project"
+              >
+                Смотреть объект
+              </button>
+            </article>
+            <article
+              class="portfolio-card"
+              role="button"
+              tabindex="0"
+              data-project-id="2"
+              data-modal-target="modal-project"
+              aria-label="Открыть объект Частный дом 2"
+            >
+              <img
+                class="portfolio-card__img"
+                src="assets/photos/examples/2/main.jpg"
+                alt="Частный дом 2, главное фото"
+                loading="lazy"
+              />
+              <h3>Частный дом 2</h3>
               <p>Калининградская область</p>
               <button
                 class="btn btn--small"
@@ -723,8 +747,18 @@
             method="POST"
           >
             <h3>Получить консультацию</h3>
-            <input type="hidden" name="_subject" value="Новая заявка с сайта СК Кайзер" />
-            <input type="text" name="_honey" tabindex="-1" autocomplete="off" hidden />
+            <input
+              type="hidden"
+              name="_subject"
+              value="Новая заявка с сайта СК Кайзер"
+            />
+            <input
+              type="text"
+              name="_honey"
+              tabindex="-1"
+              autocomplete="off"
+              hidden
+            />
             <input type="hidden" name="_captcha" value="false" />
             <label>
               Имя
@@ -848,34 +882,14 @@
             <h3 id="modal-project-title">Частный дом 1</h3>
             <p id="modal-project-location">Калининградская область</p>
           </div>
-          <dl class="project-modal__facts" id="modal-project-facts">
-            <div>
-              <dt>Формат</dt>
-              <dd>Серый ключ</dd>
-            </div>
-            <div>
-              <dt>Площадь</dt>
-              <dd>210 м²</dd>
-            </div>
-            <div>
-              <dt>Срок</dt>
-              <dd>6 месяцев</dd>
-            </div>
-            <div>
-              <dt>Состав работ</dt>
-              <dd>Фундамент, коробка, кровля, фасад, инженерия</dd>
-            </div>
-          </dl>
-          <p class="project-modal__description" id="modal-project-description">
-            Комплексное строительство частного дома с подготовкой участка,
-            устройством инженерных систем и отделкой в формате «серый ключ».
-          </p>
+          <dl class="project-modal__facts" id="modal-project-facts"></dl>
+          <p class="project-modal__description" id="modal-project-description"></p>
           <div class="project-modal__hero-wrap">
             <img
               class="project-modal__hero"
               id="modal-project-hero"
-              src="assets/photos/examples/1/main.jpg"
-              alt="Частный дом 1, главное фото"
+              src=""
+              alt=""
               loading="lazy"
             />
           </div>
@@ -883,152 +897,7 @@
             class="project-modal__gallery"
             id="modal-project-gallery"
             aria-label="Фотогалерея объекта"
-          >
-            <button
-              class="project-modal__thumb is-active"
-              type="button"
-              data-image-src="assets/photos/examples/1/main.jpg"
-              aria-label="Фото объекта 1"
-            >
-              <img
-                src="assets/photos/examples/1/main.jpg"
-                alt="Частный дом 1, фото 1"
-                loading="lazy"
-              />
-            </button>
-            <button
-              class="project-modal__thumb"
-              type="button"
-              data-image-src="assets/photos/examples/1/photo_2_2026-03-04_19-51-39.jpg"
-              aria-label="Фото объекта 2"
-            >
-              <img
-                src="assets/photos/examples/1/photo_2_2026-03-04_19-51-39.jpg"
-                alt="Частный дом 1, фото 2"
-                loading="lazy"
-              />
-            </button>
-            <button
-              class="project-modal__thumb"
-              type="button"
-              data-image-src="assets/photos/examples/1/photo_3_2026-03-04_19-51-39.jpg"
-              aria-label="Фото объекта 3"
-            >
-              <img
-                src="assets/photos/examples/1/photo_3_2026-03-04_19-51-39.jpg"
-                alt="Частный дом 1, фото 3"
-                loading="lazy"
-              />
-            </button>
-            <button
-              class="project-modal__thumb"
-              type="button"
-              data-image-src="assets/photos/examples/1/photo_4_2026-03-04_19-51-39.jpg"
-              aria-label="Фото объекта 4"
-            >
-              <img
-                src="assets/photos/examples/1/photo_4_2026-03-04_19-51-39.jpg"
-                alt="Частный дом 1, фото 4"
-                loading="lazy"
-              />
-            </button>
-            <button
-              class="project-modal__thumb"
-              type="button"
-              data-image-src="assets/photos/examples/1/photo_5_2026-03-04_19-51-39.jpg"
-              aria-label="Фото объекта 5"
-            >
-              <img
-                src="assets/photos/examples/1/photo_5_2026-03-04_19-51-39.jpg"
-                alt="Частный дом 1, фото 5"
-                loading="lazy"
-              />
-            </button>
-            <button
-              class="project-modal__thumb"
-              type="button"
-              data-image-src="assets/photos/examples/1/photo_6_2026-03-04_19-51-39.jpg"
-              aria-label="Фото объекта 6"
-            >
-              <img
-                src="assets/photos/examples/1/photo_6_2026-03-04_19-51-39.jpg"
-                alt="Частный дом 1, фото 6"
-                loading="lazy"
-              />
-            </button>
-            <button
-              class="project-modal__thumb"
-              type="button"
-              data-image-src="assets/photos/examples/1/photo_7_2026-03-04_19-51-39.jpg"
-              aria-label="Фото объекта 7"
-            >
-              <img
-                src="assets/photos/examples/1/photo_7_2026-03-04_19-51-39.jpg"
-                alt="Частный дом 1, фото 7"
-                loading="lazy"
-              />
-            </button>
-            <button
-              class="project-modal__thumb"
-              type="button"
-              data-image-src="assets/photos/examples/1/photo_9_2026-03-04_19-51-39.jpg"
-              aria-label="Фото объекта 8"
-            >
-              <img
-                src="assets/photos/examples/1/photo_9_2026-03-04_19-51-39.jpg"
-                alt="Частный дом 1, фото 8"
-                loading="lazy"
-              />
-            </button>
-            <button
-              class="project-modal__thumb"
-              type="button"
-              data-image-src="assets/photos/examples/1/photo_10_2026-03-04_19-51-39.jpg"
-              aria-label="Фото объекта 9"
-            >
-              <img
-                src="assets/photos/examples/1/photo_10_2026-03-04_19-51-39.jpg"
-                alt="Частный дом 1, фото 9"
-                loading="lazy"
-              />
-            </button>
-            <button
-              class="project-modal__thumb"
-              type="button"
-              data-image-src="assets/photos/examples/1/photo_12_2026-03-04_19-51-39.jpg"
-              aria-label="Фото объекта 10"
-            >
-              <img
-                src="assets/photos/examples/1/photo_12_2026-03-04_19-51-39.jpg"
-                alt="Частный дом 1, фото 10"
-                loading="lazy"
-              />
-            </button>
-            <button
-              class="project-modal__thumb"
-              type="button"
-              data-image-src="assets/photos/examples/1/photo_13_2026-03-04_19-51-39.jpg"
-              aria-label="Фото объекта 11"
-            >
-              <img
-                src="assets/photos/examples/1/photo_13_2026-03-04_19-51-39.jpg"
-                alt="Частный дом 1, фото 11"
-                loading="lazy"
-              />
-            </button>
-            <button
-              class="project-modal__thumb"
-              type="button"
-              data-image-src="assets/photos/examples/1/photo_14_2026-03-04_19-51-39.jpg"
-              aria-label="Фото объекта 12"
-            >
-              <img
-                src="assets/photos/examples/1/photo_14_2026-03-04_19-51-39.jpg"
-                alt="Частный дом 1, фото 12"
-                loading="lazy"
-              />
-            </button>
-          </div>
+          ></div>
         </div>
       </div>
     </div>
@@ -1142,7 +1011,8 @@
         <button class="modal__close" aria-label="Закрыть">×</button>
         <h3 id="modal-fences-title">Заборы и ограждения</h3>
         <p class="modal__intro">
-          Делаем надежные ограждения участка с подготовкой основания и фурнитуры.
+          Делаем надежные ограждения участка с подготовкой основания и
+          фурнитуры.
         </p>
         <ul class="modal__list">
           <li>Установка столбов и основания</li>

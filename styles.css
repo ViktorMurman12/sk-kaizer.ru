@@ -197,10 +197,15 @@ a {
 }
 
 .brand__logo {
-  width: 40px;
-  height: 40px;
+  width: 52px;
+  height: 52px;
   object-fit: contain;
   display: block;
+}
+
+.brand__text {
+  font-size: 1.35rem;
+  line-height: 1;
 }
 
 .nav {
