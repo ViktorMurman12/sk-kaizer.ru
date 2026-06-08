@@ -118,6 +118,7 @@ const portfolioProjects = {
   1: {
     title: 'Частный дом 1',
     location: 'Калининградская область',
+    url: 'portfolio/dom-1/',
     facts: [
       ['Формат', 'Серый ключ'],
       ['Площадь', '210 м²'],
@@ -144,6 +145,7 @@ const portfolioProjects = {
   2: {
     title: 'Частный дом 2',
     location: 'Калининградская область',
+    url: 'portfolio/dom-2/',
     facts: [
       ['Формат', 'Белый ключ'],
       ['Площадь', '175 м²'],
@@ -169,6 +171,7 @@ const projectModalFacts = document.getElementById('modal-project-facts');
 const projectModalDescription = document.getElementById('modal-project-description');
 const projectModalGallery = document.getElementById('modal-project-gallery');
 const projectModalHero = document.getElementById('modal-project-hero');
+const projectModalLink = document.getElementById('modal-project-link');
 const portfolioCards = document.querySelectorAll('.portfolio-card[data-project-id]');
 
 const bindProjectGallery = () => {
@@ -202,7 +205,8 @@ const fillProjectModal = (projectId) => {
     !projectModalFacts ||
     !projectModalDescription ||
     !projectModalGallery ||
-    !projectModalHero
+    !projectModalHero ||
+    !projectModalLink
   ) {
     return;
   }
@@ -210,6 +214,7 @@ const fillProjectModal = (projectId) => {
   projectModalTitle.textContent = project.title;
   projectModalLocation.textContent = project.location;
   projectModalDescription.textContent = project.description;
+  projectModalLink.href = project.url;
   projectModalFacts.innerHTML = project.facts
     .map(
       ([label, value]) => `
