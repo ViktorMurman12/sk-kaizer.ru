@@ -20,7 +20,12 @@ serviceCards.forEach((card) => {
   const openCardLink = () => {
     const href = card.dataset.href;
     if (href) {
-      window.location.hash = href;
+      if (href.startsWith('#')) {
+        window.location.hash = href;
+        return;
+      }
+
+      window.location.href = href;
     }
   };
 
