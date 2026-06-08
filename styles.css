@@ -955,6 +955,41 @@ a {
   font-weight: 700;
 }
 
+.contacts__qr {
+  width: 112px;
+  height: 112px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  border: 1px solid #d8dee7;
+  background: #fff;
+  padding: 4px;
+}
+
+.contacts__qr-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 18px;
+}
+
+.contacts__qr-card {
+  margin: 0;
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid #d8dee7;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(17, 28, 40, 0.06);
+}
+
+.contacts__qr-card figcaption {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #4f5b6c;
+}
+
 .contacts__form {
   border: 1px solid #d8dee7;
   border-radius: var(--radius-lg);
